@@ -13,6 +13,11 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
+## TODO :)
+
+- [ ] Mark all as completed
+- [ ] tests
+
 ## Learn more
 
   * Official website: http://www.phoenixframework.org/
