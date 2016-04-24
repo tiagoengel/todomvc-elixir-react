@@ -1,0 +1,31 @@
+# App artifacts
+/_build
+/db
+/deps
+/*.ez
+build
+
+# Generate on crash by the VM
+erl_crash.dump
+
+# The config/prod.secret.exs file by default contains sensitive
+# data and you should not commit it into version control.
+#
+# Alternatively, you may comment the line below and commit the
+# secrets file as long as you replace its contents by environment
+# variables.
+/node_modules
+# /config/dev.secret.exs
+# /config/prod.secret.exs
+
+# Exclude everything (almost) on the private static directory
+/priv/static/**/*
+!/priv/static/favicon.ico
+!/priv/static/robots.txt
+
+
+#Coverage
+coverage/
+cover/
+
+*.log

@@ -1,0 +1,5 @@
+# top-most EditorConfig file
+root = true
+indent_style = space
+charset = utf-8
+indent_size = 2
