@@ -57,7 +57,7 @@ export default class TodoList extends Component {
         <li key={idx} className={liClassName}>
           <div className="view">
             {this._renderCompletedCheckbox(todo)}
-            <label onDoubleClick={() => this._startEditing(idx)}>{todo.description}</label>
+            <label id={`todoLabel${idx}`} onDoubleClick={() => this._startEditing(idx)}>{todo.description}</label>
             <button className="destroy" onClick={() => this._delete(todo)}></button>
           </div>
           <TodoInput

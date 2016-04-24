@@ -36,7 +36,8 @@ defmodule Todomvc.Mixfile do
      {:phoenix_html, "~> 2.4"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.9"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:hound, "~> 0.8", only: :test}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
@@ -47,6 +48,7 @@ defmodule Todomvc.Mixfile do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     ["ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
-     "ecto.reset": ["ecto.drop", "ecto.setup"]]
+     "ecto.reset": ["ecto.drop", "ecto.setup"],
+     "phoenix.digest": ["Todomvc.digest"]]
   end
 end

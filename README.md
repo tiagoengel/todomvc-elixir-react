@@ -13,10 +13,10 @@ To start your Phoenix app:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-## TODO :)
+## Tests
 
-- [X] Mark all as completed
-- [ ] tests
+* To run unit tests ```mix test```
+* To run integration tests first install and start ```chromedriver``` then execute ```mix test --only integration```
 
 ## Learn more
 
