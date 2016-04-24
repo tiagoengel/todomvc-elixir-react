@@ -64,6 +64,7 @@ export default class TodoInput extends Component {
         onChange={::this._handleChange}
         onKeyUp={::this._handleKeyUp}
         onBlur={::this._handleBlur}
+        autoFocus={this.props.autoFocus}
       />
    )
   }

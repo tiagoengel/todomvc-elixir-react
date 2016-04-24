@@ -33,6 +33,18 @@ export function update(todo) {
     .then(response => changed(updateTodo(response.data, todos)));
 }
 
+export function updateAll(toUpdate) {
+  return Promise.all(toUpdate.map((todo) => {
+    return httpPut(`api/todos/${todo.id}`, {todo}).then(response => response.data);
+  })).then(allUpdated => {
+    changed(
+      allUpdated.reduce((newTodos, updatedTodo) => {
+        return updateTodo(updatedTodo, newTodos);
+      }, todos)
+    );
+  });
+}
+
 export function remove({id}) {
   return httpDelete(`api/todos/${id}`)
     .then(() => changed(removeTodo(id, todos)));

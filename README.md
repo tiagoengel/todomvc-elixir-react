@@ -15,7 +15,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## TODO :)
 
-- [ ] Mark all as completed
+- [X] Mark all as completed
 - [ ] tests
 
 ## Learn more
