@@ -29,32 +29,32 @@ defmodule Todomvc.TodoControllerTest do
   end
 
   test "creates and renders resource when data is valid", %{conn: conn} do
-    conn = post conn, todo_path(conn, :create), todo: @valid_attrs
+    conn = post conn, todo_path(conn, :create), todo: @valid_attrs, client_id: 1
     assert json_response(conn, 201)["data"]["id"]
     assert Repo.get_by(Todo, @valid_attrs)
   end
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
-    conn = post conn, todo_path(conn, :create), todo: @invalid_attrs
+    conn = post conn, todo_path(conn, :create), todo: @invalid_attrs, client_id: 1
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "updates and renders chosen resource when data is valid", %{conn: conn} do
     todo = Repo.insert! %Todo{}
-    conn = put conn, todo_path(conn, :update, todo), todo: @valid_attrs
+    conn = put conn, todo_path(conn, :update, todo), todo: @valid_attrs, client_id: 1
     assert json_response(conn, 200)["data"]["id"]
     assert Repo.get_by(Todo, @valid_attrs)
   end
 
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     todo = Repo.insert! %Todo{}
-    conn = put conn, todo_path(conn, :update, todo), todo: @invalid_attrs
+    conn = put conn, todo_path(conn, :update, todo), todo: @invalid_attrs, client_id: 1
     assert json_response(conn, 422)["errors"] != %{}
   end
 
   test "deletes chosen resource", %{conn: conn} do
     todo = Repo.insert! %Todo{}
-    conn = delete conn, todo_path(conn, :delete, todo)
+    conn = delete conn, todo_path(conn, :delete, todo), client_id: 1
     assert response(conn, 204)
     refute Repo.get(Todo, todo.id)
   end

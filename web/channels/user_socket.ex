@@ -3,6 +3,7 @@ defmodule Todomvc.UserSocket do
 
   ## Channels
   # channel "rooms:*", Todomvc.RoomChannel
+  channel "todos", Todomvc.TodoChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -19,8 +20,11 @@ defmodule Todomvc.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
-  def connect(_params, socket) do
-    {:ok, socket}
+  def connect(%{"client_id" => id}, socket) do
+    {:ok, assign(socket, :client_id, id)}
+  end
+  def connect(_, socket) do
+    {:error, %{error: "Not authorized"}}
   end
 
   # Socket id's are topics that allow you to identify all sockets for a given user:

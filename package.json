@@ -47,6 +47,7 @@
     "phoenix_html": "file:deps/phoenix_html",
     "react": "^15.0",
     "react-dom": "^15.0",
-    "react-router": "^2.0.0"
+    "react-router": "^2.0.0",
+    "shortid": "^2.2.6"
   }
 }

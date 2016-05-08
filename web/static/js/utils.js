@@ -58,10 +58,12 @@ export function httpPost(url, data) {
   .then(parseJSON);
 }
 
-export function httpDelete(url) {
+export function httpDelete(url, data) {
+  const body = data ? JSON.stringify(data) : undefined;
   return fetch(url, {
     method: 'delete',
-    headers: buildHeaders()
+    headers: buildHeaders(),
+    body: body
   })
   .then(checkStatus)
   .then(parseJSON);
